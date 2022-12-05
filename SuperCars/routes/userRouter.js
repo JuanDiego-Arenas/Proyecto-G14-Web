@@ -11,19 +11,19 @@ userRouter.post("/", (req, res) =>{
 
 // Leer
 // GET
-userRouter.get("/", (req, res) =>{
+userRouter.get("/:id", (req, res) =>{
     readUser(req, res)
 })
 
 // ActualIzar
 // PUT
-userRouter.put("/", (req, res) =>{
+userRouter.patch("/:id", (req, res) =>{
     updateUser(req, res)
 })
 
 // Eliminar
 // DELETE
-userRouter.delete("/", (req, res) =>{
+userRouter.delete("/:id", (req, res) =>{
     deleteUser(req, res)
 })
 
