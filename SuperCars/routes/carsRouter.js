@@ -17,13 +17,13 @@ carsRouter.get("/", (req, res) =>{
 
 // ActualIzar
 // PUT
-carsRouter.put("/", (req, res) =>{
+carsRouter.patch("/:placa", (req, res) =>{
     updateCar(req, res)
 })
 
 // Eliminar
 // DELETE
-carsRouter.delete("/", (req, res) =>{
+carsRouter.delete("/:placa", (req, res) =>{
     deleteCar(req, res)
 })
 

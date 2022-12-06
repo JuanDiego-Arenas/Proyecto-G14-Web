@@ -20,5 +20,5 @@ mongoose.connect("mongodb+srv://SuperCars:SuperCars@supercarscluster.ihqmraz.mon
 })
 
 app.use(express.json())
-//app.use("/user", userRouter)
+app.use("/user", userRouter)
 app.use("/cars", carsRouter)
