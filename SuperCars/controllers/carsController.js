@@ -34,10 +34,41 @@ export async function readCar(req, res){
     //res.sendStatus(200)
 }
 
-export function updateCar(req, res){
-    res.sendStatus(200)
+export async function updateCar(req, res){
+    const {placa} = req.params
+    const {cambios} = req.body
+
+    let documento;
+
+    try {
+        documento = await userModel.updateOne({
+            "placa": placa
+        }, cambios, {runValidators:true})
+    } catch (error) {
+        res.status(400)
+        res.json(error.message)
+        return;
+    }
+
+    res.status(200)
+    res.json(documento)
 }
 
-export function deleteCar(req, res){
-    res.sendStatus(200)
+export async function deleteCar(req, res){
+    const {placa} = req.params
+
+    let documento
+
+    try {
+        documento = await userModel.findOneAndDelete({
+            "placa": placa
+        })
+    } catch (error) {
+        res.status(400)
+        res.json(error.message)
+        return;
+    }
+
+    res.status(200)
+    res.json(documento)
 }
