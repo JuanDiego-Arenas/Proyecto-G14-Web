@@ -2,6 +2,7 @@ import express from "express"
 import mongoose from "mongoose";
 import userRouter from "./routes/userRouter.js";
 import carsRouter from "./routes/carsRouter.js";
+import invoiceRouter from "./routes/invoiceRouter.js";
 
 const app = express()
 
@@ -22,3 +23,4 @@ mongoose.connect("mongodb+srv://SuperCars:SuperCars@supercarscluster.ihqmraz.mon
 app.use(express.json())
 app.use("/user", userRouter)
 app.use("/cars", carsRouter)
+app.use("/invoice", invoiceRouter)
