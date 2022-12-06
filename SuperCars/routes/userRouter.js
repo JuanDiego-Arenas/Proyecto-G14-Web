@@ -1,5 +1,6 @@
 import express from "express";
 import { createUser, deleteUser, readUser, updateUser } from "../controllers/userController.js";
+import validateToken from "../middleware/validateToken.js";
 
 const userRouter = express.Router()
 
@@ -11,19 +12,19 @@ userRouter.post("/", (req, res) =>{
 
 // Leer
 // GET
-userRouter.get("/:id", (req, res) =>{
+userRouter.get("/", validateToken, (req, res) =>{
     readUser(req, res)
 })
 
 // ActualIzar
 // PUT
-userRouter.patch("/:id", (req, res) =>{
+userRouter.patch("/:user", (req, res) =>{
     updateUser(req, res)
 })
 
 // Eliminar
 // DELETE
-userRouter.delete("/:id", (req, res) =>{
+userRouter.delete("/:user", (req, res) =>{
     deleteUser(req, res)
 })
 

@@ -1,10 +1,20 @@
 import userModel from "../models/userModel.js";
+import bcrypt from "bcrypt"
 
 // CREATE
 export async function createUser(req, res){
 
-    // Desestructurar los parámetros
+    // Desestructurar los parámetros para recibirlos en el body
     const user = req.body;
+    const {password} = user
+
+    // Cifrado de la contraseña (cifrado diferente así la contraseña sea igual)
+    // const salt = await bcrypt.genSalt(10);
+    const cryptPassword = await bcrypt.hash(password, 10);
+
+    user.password = cryptPassword
+
+    // guardamos los parámetros del body en un documento
     let documento
 
     try {
@@ -23,14 +33,13 @@ export async function createUser(req, res){
 // READ
 export async function readUser(req, res){
 
-    const {id} = req.params
+    // Desestructurar los parámetros, para recibirlos en la URL
+    const {user} = req
+
     let document
 
     try {
-        document = await userModel.find({
-            "idNumber":id
-        })
-
+        document = await userModel.find({user})
     } catch (error) {
         res.status(400)
         res.json(error.message)
@@ -44,43 +53,41 @@ export async function readUser(req, res){
 // UPDATE
 export async function updateUser(req, res){
 
-    const {id} = req.params
+    // Autorizamos el usuario por la URL
+    const {user} = req.params
+    // Recibimos los cambios en una constante
     const {changes} = req.body
 
-    let document
+    let document;
 
     try {
-        document = await userModel.findOneAndUpdate({
-            "idNumber":id
-        },{
-            changes
-        })
-
+        document = await userModel.updateOne({
+            user
+            // Verificamos las validaciones de los parámetros
+        }, changes, {runValidators:true})
     } catch (error) {
         res.status(400)
         res.json(error.message)
         return;
     }
 
-    document = 
-    document.save()
-
     res.status(200)
-    res.json(document, changes)
+    res.json(document)
 }
 
+// DELETE
 export async function deleteUser(req, res){
 
-    const {id} = req.params
+    const {user} = req.params
 
     let document
 
     try {
         document = await userModel.findOneAndDelete({
-            "idNumber":id
+            user
         })
 
-} catch (error) {
+    } catch (error) {
         res.status(400)
         res.json(error.message)
         return;
