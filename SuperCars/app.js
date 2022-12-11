@@ -14,6 +14,7 @@ app.listen(puerto, () => {
   console.log("el servidor se esta ejecutando");
 });
 
+mongoose.set("strictQuery", false);
 mongoose.connect(
   "mongodb+srv://SuperCars:SuperCars@supercarscluster.ihqmraz.mongodb.net/SuperCarsDB?retryWrites=true&w=majority",
   (err) => {
@@ -21,27 +22,6 @@ mongoose.connect(
       console.log(err);
     } else {
       console.log("se ha conectado a la base de datos");
-    }
-  }
-);
-
-mongoose.connect(
-  "mongodb+srv://SuperCars:SuperCars@supercarscluster.ihqmraz.mongodb.net/SuperCarsDB?retryWrites=true&w=majority",
-  (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Se ha conectado a la base de datos.");
-    }
-  }
-);
-mongoose.connect(
-  "mongodb+srv://SuperCars:SuperCars@supercarscluster.ihqmraz.mongodb.net/SuperCarsDB?retryWrites=true&w=majority",
-  (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("La base de datos está conectada...");
     }
   }
 );
