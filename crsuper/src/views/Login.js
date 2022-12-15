@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import Button from "../components/forms/Button";
-import Flex from "../components/utils/Flex";
-import Input from "../components/forms/Input";
-import Gap from "../components/utils/Gap";
+import React, { useState } from 'react';
+import Button from '../components/forms/Button';
+import Flex from '../components/utils/Flex';
+import Input from '../components/forms/Input';
+import Gap from '../components/utils/Gap';
 
 function Login() {
     async function onSubmit(evento) {
         evento.preventDefault();
         alert(
-            "estas iniciando sesión.\nUser: " + user + "\nPassword: " + password
+            'estas iniciando sesión.\nUser: ' + user + '\nPassword: ' + password
         );
 
-        const res = await fetch("http://localhost:8080/login", {
-            method: "GET",
-            mode: "cors",
+        const res = await fetch('http://localhost:8080/login', {
+            method: 'GET',
+            mode: 'cors',
             headers: {
                 user: user,
                 password: password,
@@ -22,18 +22,18 @@ function Login() {
 
         if (res.ok) {
             const data = await res.json();
-            alert("Tu token es: " + data.token);
+            alert('Tu token es: ' + data.token);
         } else {
-            alert("Error: " + res.statusText);
+            alert('Error: ' + res.statusText);
         }
     }
 
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState('');
     function onUserChange(e) {
         setUser(e.target.value);
     }
 
-    const [password, setPassword] = useState("");
+    const [password, setPassword] = useState('');
     function onPasswordChange(e) {
         setPassword(e.target.value);
     }

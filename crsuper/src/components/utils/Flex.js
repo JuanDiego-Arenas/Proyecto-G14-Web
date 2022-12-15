@@ -1,5 +1,5 @@
-import React from "react";
-import "./util.css";
+import React from 'react';
+import './util.css';
 
 function Flex(props) {
     const { children, padding, borderRadius } = props;

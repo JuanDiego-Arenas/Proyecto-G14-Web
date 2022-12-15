@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import "./assets/global.css";
-import Button from "./components/forms/Button";
+import React, { useState } from 'react';
+import './assets/global.css';
+import Button from './components/forms/Button';
 
-import Login from "./views/Login";
+import Login from './views/Login';
 
 // background-color: rgb(17, 24, 39);
 

@@ -1,5 +1,5 @@
-import React from "react";
-import "./forms.css";
+import React from 'react';
+import './forms.css';
 
 function Input(props) {
     const { type, onChange } = props;
