@@ -1,0 +1,42 @@
+.button {
+    /* padding: 0,2rem; */
+    background-color: rgb(99 102 241);
+    border: none;
+
+    /* rounded 0.25rem */
+    border-radius: 4px;
+    color: white;
+    border: none;
+
+    /* py-2 8px */
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+
+    /* px-8 32px */
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.button:hover {
+    /* bg-indigo-600 */
+    background-color: rgb(79 70 229);
+    cursor: pointer;
+}
+
+.button:focus {
+    /* outline-none */
+    outline-width: none;
+}
+
+.principal {
+    background-color: rgb(17, 24, 39);
+}
+
+.input {
+    background-color: rgba(75, 85, 99, 0.2);
+    text-align: left;
+    border: 1rem;
+    border-color: white;
+    padding: 0.25rem;
+    border-radius: 5px;
+}
