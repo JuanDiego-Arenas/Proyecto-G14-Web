@@ -4,10 +4,11 @@ import userRouter from "./routes/userRouter.js";
 import carsRouter from "./routes/carsRouter.js";
 import invoiceRouter from "./routes/invoiceRouter.js";
 import tiendaRouter from "./routes/tiendaRouter.js"
+import cors from "cors"
 
 
 const app = express()
-const puerto = process.env.PORT || 3000
+const puerto = process.env.PORT || 8090
 
 app.listen(puerto, ()=>{
     console.log("el servidor se esta ejecutando")
@@ -29,6 +30,7 @@ mongoose.connect("mongodb+srv://SuperCars:SuperCars@supercarscluster.ihqmraz.mon
     }
 })
 
+app.use(cors({origin:"http://localhost:3000"}))
 app.use(express.json())
 
 app.use("/user", userRouter)
