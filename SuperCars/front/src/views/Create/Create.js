@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Boton from '../../components/forms/Boton/Boton';
 import Input from '../../components/forms/Input/Input';
-import "./create.css"
+import "./Create.css"
 
 function Create() {
 
