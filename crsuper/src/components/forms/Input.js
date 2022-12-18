@@ -1,10 +1,18 @@
 import React from 'react';
-import './forms.css';
 
 function Input(props) {
-    const { type, onChange } = props;
+    const { type, onChange, placeholder, children } = props;
 
-    return <input className="input" type={type} onChange={onChange}></input>;
+    return (
+        <label className="input">
+            <b>{children}</b>
+            <input
+                type={type}
+                placeholder={placeholder}
+                onChange={onChange}
+            ></input>
+        </label>
+    );
 }
 
 export default Input;

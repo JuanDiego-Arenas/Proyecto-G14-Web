@@ -1,25 +1,59 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './assets/global.css';
-import Button from './components/forms/Button';
-
-import Login from './views/Login';
+import Navbar from './components/ui/Navbar';
+import { TokenProvider } from './contexts/TokenContext';
+import { UserProvider } from './contexts/UserContext';
+import Home from './views/home/Home';
+import Login from './views/login/Login';
+import Store from './views/store/Store';
+import Register from './views/register/Register';
 
 // background-color: rgb(17, 24, 39);
 
 function App() {
-    const [contador, setContador] = useState(0);
-
-    function increment() {
-        setContador(contador + 1);
-        console.log(contador);
-    }
     return (
-        <div className="principal">
-            <h1>CrSuperCars</h1>
-            <Login></Login>
-            <p>contador: {contador}</p>
-            <Button onClick={increment}>Incrementar contador</Button>
-        </div>
+        <Routes>
+            <Route element={<Navbar />}>
+                <Route path="/" element={<Home />} />
+                <Route
+                    path="/about"
+                    element={<h1 className="container">About</h1>}
+                />
+            </Route>
+
+            <Route
+                path="/login"
+                element={
+                    <TokenProvider>
+                        <UserProvider>
+                            <Login />
+                        </UserProvider>
+                    </TokenProvider>
+                }
+            />
+            <Route
+                path="/register"
+                element={
+                    <TokenProvider>
+                        <UserProvider>
+                            <Register />
+                        </UserProvider>
+                    </TokenProvider>
+                }
+            />
+            <Route
+                path="/store"
+                element={
+                    <TokenProvider>
+                        <UserProvider>
+                            <Store />
+                        </UserProvider>
+                    </TokenProvider>
+                }
+            />
+
+        </Routes>
     );
 }
 
