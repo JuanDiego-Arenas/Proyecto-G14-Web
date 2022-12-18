@@ -8,12 +8,12 @@
   font-size: 32px;
 }
 
-.transactions {
+.cars {
   flex-direction: column;
   margin-top: 1rem;
 }
 
-.transaction {
+.car {
   background-color: rgb(232, 232, 232);
   padding: 1rem;
   border-radius: var(--default-radius);
@@ -23,20 +23,32 @@
   width: 70%;
 }
 
-.transaction .from {
+.car .from {
   color: var(--main-color);
   font-weight: 500;
   font-size: 18px;
 }
 
-.transaction .positive-value {
+.car .estado_good {
+  color: rgb(18, 201, 161);
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.car .estado_bad {
+  color: rgb(229, 91, 116);
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.car .positive-value {
   color: var(--main-color);
   font-weight: 700;
   font-size: 18px;
   text-align: right;
 }
 
-.transaction .negative-value {
+.car .negative-value {
   color: var(--enf-color);
   font-weight: 700;
   font-size: 18px;

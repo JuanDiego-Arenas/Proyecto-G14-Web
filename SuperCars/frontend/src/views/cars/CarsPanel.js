@@ -2,37 +2,44 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import TokenContext from "../../contexts/TokenContext";
 import { getTransactions } from "../../services/TransactionService";
+import { CarsService } from "../../services/CarsService";
+import List_cars from "./List_cars";
 //import Transaction from "./Transaction";
 
 import "./CarsPanel.css";
 
 function CarsPanel() {
-  function CarsPanel() {
-    const { token } = useContext(TokenContext);
+  const { token } = useContext(TokenContext);
 
-    const navigate = useNavigate();
-    const [documents, setDocuments] = useState([]);
+  const navigate = useNavigate();
+  const [documents, setDocuments] = useState([]);
 
-    useEffect(() => {
-      if (!token) {
-        return navigate("/login");
-      }
+  useEffect(() => {
+    if (!token) {
+      return navigate("/login");
+    }
 
-      async function fetchData() {
-        const documents = await getTransactions(token);
-        setDocuments(documents);
-      }
+    async function fetchData() {
+      const documents = await CarsService(token);
+      setDocuments(documents);
+    }
 
-      fetchData();
-    }, []);
+    fetchData();
+  }, []);
 
-    return;
-    <section className="cars-panel">
+  return (
+    <section className="user-panel">
       <div className="container">
-        <h1>Vehiculos Disponibles</h1>
+        <h1>Lista de Carros</h1>
+
+        <div className="cars card">
+          {documents.map((document) => (
+            <List_cars data={document} key={document._id} />
+          ))}
+        </div>
       </div>
-    </section>;
-  }
+    </section>
+  );
 }
 
 export default CarsPanel;
