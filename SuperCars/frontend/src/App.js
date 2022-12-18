@@ -9,6 +9,7 @@ import Home from "./views/home/Home";
 import Login from "./views/login/Login";
 import UserPanel from "./views/panel/UserPanel";
 import Register from "./views/register/Register";
+import CarsPanel from "./views/cars/CarsPanel";
 import Test from "./views/test/Test";
 
 function App() {
@@ -45,6 +46,16 @@ function App() {
           <TokenProvider>
             <UserProvider>
               <UserPanel />
+            </UserProvider>
+          </TokenProvider>
+        }
+      />
+      <Route
+        path="/cars"
+        element={
+          <TokenProvider>
+            <UserProvider>
+              <CarsPanel />
             </UserProvider>
           </TokenProvider>
         }

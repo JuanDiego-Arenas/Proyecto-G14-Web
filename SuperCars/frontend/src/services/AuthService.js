@@ -1,9 +1,9 @@
 export async function login(user, password) {
   console.log(user);
   console.log(password);
-  const res = await fetch("http://localhost:8080/api/login/", {
+  const res = await fetch("http://localhost:8080/login/", {
     headers: {
-      name: user,
+      user: user,
       password: password,
     },
   });

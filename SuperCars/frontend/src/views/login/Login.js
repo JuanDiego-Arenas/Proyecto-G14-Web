@@ -25,7 +25,7 @@ function Login() {
     if (token) {
       setToken(token);
       setUser({ name: userName });
-      navigate("/panel");
+      navigate("/cars");
     } else {
       alert("Credenciales Incorrectas");
     }
@@ -38,7 +38,7 @@ function Login() {
           <Logo showText={false} />
         </Link>
         <h1 className="title">
-          Iniciar Sesión en <b>Ullet</b>
+          Iniciar Sesión en <b>SuperCars</b>
         </h1>
         <p>¡Que gusto verte nuevamente!</p>
         <form className="flex card form">
@@ -58,7 +58,7 @@ function Login() {
         </form>
         <div className="register card">
           <p>
-            ¿Nuevo en Ullet? <Link to="/register">Crear una cuenta</Link>
+            ¿Nuevo en SuperCars? <Link to="/register">Crear una cuenta</Link>
           </p>
         </div>
       </div>
