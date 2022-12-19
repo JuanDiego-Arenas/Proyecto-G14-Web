@@ -36,6 +36,7 @@ app.use(express.json());
 
 app.use("/user", userRouter);
 app.use("/cars", carsRouter);
+
 app.use("/invoice", invoiceRouter);
 app.use("/tienda", tiendaRouter);
 
