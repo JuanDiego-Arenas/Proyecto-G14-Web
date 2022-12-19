@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import "./assets/global.css";
 import Navbar from "./components/ui/Navbar";
+import NavCars from "./components/ui/NavCars";
 import { TokenProvider } from "./contexts/TokenContext";
 import { UserProvider } from "./contexts/UserContext";
 import Home from "./views/home/Home";
@@ -11,6 +12,8 @@ import UserPanel from "./views/panel/UserPanel";
 import Register from "./views/register/Register";
 import CarsPanel from "./views/cars/CarsPanel";
 import InvoicePanel from "./views/invoices/InvoicePanel";
+import CreateCars from "./views/cars/CreateCars";
+import DeleteCars from "./views/cars/DeleteCars";
 import Test from "./views/test/Test";
 
 function App() {
@@ -56,19 +59,30 @@ function App() {
         element={
           <TokenProvider>
             <UserProvider>
-              <Navbar />
+              <NavCars />
               <CarsPanel />
             </UserProvider>
           </TokenProvider>
         }
       />
       <Route
-        path="/invoice"
+        path="/createcars"
         element={
           <TokenProvider>
             <UserProvider>
               <Navbar />
-              <InvoicePanel />
+              <CreateCars />
+            </UserProvider>
+          </TokenProvider>
+        }
+      />
+      <Route
+        path="/deletecars"
+        element={
+          <TokenProvider>
+            <UserProvider>
+              <Navbar />
+              <DeleteCars />
             </UserProvider>
           </TokenProvider>
         }
