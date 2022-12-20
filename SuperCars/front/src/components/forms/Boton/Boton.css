@@ -1,0 +1,29 @@
+.wire-btn, .fill-btn{
+    font-weight: bold;
+    padding: 0.5rem 2.5rem;
+    border-radius: 10rem;
+    cursor:pointer;
+    transition: 0.3s;
+}
+
+.wire-btn{
+    background-color: transparent;
+    margin-top: 1.5rem;
+}
+
+.wire-btn:hover{
+    background-color: var(--main-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.fill-btn{
+    background-color: var(--main-color);
+    color: white;
+}
+
+.fill-btn:hover{
+    background-color: white;
+    color: var(--main-color);
+    transform: translateY(-2px);
+}
