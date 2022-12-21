@@ -3,12 +3,13 @@ import tiendaModel from "../models/tiendaModel.js"
 //creacion tienda
 export async function createTienda(req, res){
 
-    const tienda = req.body;
-    let id = tienda.ciudad.substring(0,3)+tienda.sede.substring(0,3)
+    const tienda = req.headers;
+
     let documento = null
-    tienda._id= id.toUpperCase()
 
     try{
+        let id = tienda.ciudad.substring(0, 3)+tienda.sede.substring(0, 3)
+        tienda._id= id.toUpperCase()
         documento = await tiendaModel.create(tienda)
     }catch(error){
         res.status(400)
@@ -27,26 +28,30 @@ export async function readTienda(req, res){
    let documento = null
    
    try{
-    documento = await tiendaModel.find({_id});
+        documento = await tiendaModel.findOne({_id});
    }catch(error){
-    res.status(400);
-    res.json(error.message)
-    return;
+        res.status(400);
+        res.json(error.message)
+        return
    }
-
-   res.json(documento)
-   res.status(200)
+   
+    res.status(200)
+    res.json(documento)
+   
 }
 
 //actualizar tiendas
 export async function updateTienda(req, res){
     const {id} = req.params
-    const {cambios}= req.body
-
+    const cambio= req.headers
     let documento=null
 
     try{
-        documento = await tiendaModel.updateOne({_id:id},cambios)
+        documento = await tiendaModel.updateOne({
+            _id:id
+        },
+            cambio,{ runValidators: true}
+        )
     }catch(error){
         res.status(400)
         res.json(error.message)
@@ -69,6 +74,7 @@ export async function deleteTienda(req, res){
         res.json(error.message);
         return;
     }
-    res.sendStatus(200)
     res.json(documento)
+    res.status(200)
+    
 }
