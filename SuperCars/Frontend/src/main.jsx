@@ -1,10 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { CookiesProvider } from 'react-cookie';
+import App from './App';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+const container = document.getElementById('root');
+// @ts-ignore
+const root = ReactDOM.createRoot(container);
+root.render(
+    <React.StrictMode>
+        <CookiesProvider>
+            <BrowserRouter>
+                <App></App>
+            </BrowserRouter>
+        </CookiesProvider>
+    </React.StrictMode>
+);
