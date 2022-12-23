@@ -21,7 +21,7 @@ export async function register(
         },
     };
 
-    const res = await fetch(API_URL + 'api/register', {
+    const res = await fetch(API_URL + '/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ export async function register(
 }
 
 export async function login(user, password) {
-    const res = await fetch(API_URL + 'api/login', {
+    const res = await fetch(API_URL + '/login', {
         mode: 'cors',
         headers: {
             user: user,
