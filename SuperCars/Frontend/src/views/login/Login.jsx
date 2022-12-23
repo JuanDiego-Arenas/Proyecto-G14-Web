@@ -15,11 +15,11 @@ function Login() {
     const [cookies, setCookies] = useCookies(['token']);
 
     // Si hay un token, navega a cars (Pagina Principal)
+    const navigate = useNavigate();
+
     useEffect(() => {
         if (cookies.token) navigate('/cars');
     }, []);
-
-    const navigate = useNavigate();
 
     function onButtonClick(event) {
         event.preventDefault();

@@ -50,7 +50,6 @@ export async function login(user, password) {
     if (res.ok) {
         return document.token;
     } else {
-        console.log(document.message);
         alert('no autorizado');
         return null;
     }

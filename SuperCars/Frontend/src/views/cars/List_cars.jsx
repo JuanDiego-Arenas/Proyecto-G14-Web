@@ -5,8 +5,6 @@ import './CarsPanel.css';
 import Button from '../../components/forms/Button/Button';
 
 function List_cars(props) {
-    const { propietario } = useContext(UserContext);
-
     const { data } = props;
     //console.log(data);
     const { modelo, marca, valor, kilometraje, createdAt, estado, placa } =
@@ -35,9 +33,7 @@ function List_cars(props) {
                 <p></p>
                 <p className="estado_good">Estado: {estado}</p>
                 <p className="negative-value">Valor:$ {valor}</p>
-                <p className="date">
-                    fecha a la venta:{createdAt.substr(0, 10)}
-                </p>
+                <p className="date">fecha a la venta:{createdAt}</p>
                 <Button onClick={Alquilar_ComprarClick}>
                     Alquilar o Comprar
                 </Button>
@@ -54,7 +50,7 @@ function List_cars(props) {
             <p></p>
             <p className="estado_bad">Estado: {estado}</p>
             <p className="negative-value">Valor:$ {valor}</p>
-            <p className="date">fecha a la venta:{createdAt.substr(0, 10)}</p>
+            <p className="date">fecha a la venta:{createdAt}</p>
         </div>
     );
 }

@@ -36,9 +36,9 @@ function DeleteCars() {
     }
 
     return (
-        <section className="create">
+        <section className="login">
             <div className="container">
-                <form className="  form">
+                <form className=" card form">
                     <h1 className="title">Registrar Carros</h1>
                     <Input onChange={event => setPlaca(event.target.value)}>
                         placa

@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 import List_cars from './List_cars';
 import My_cars from './My_cars';
-// import TokenContext from '../../contexts/TokenContext';
-// import { getTransactions } from '../../services/TransactionService';
-// import { CarsService } from '../../services/CarsService';
+import TokenContext from '../../contexts/TokenContext';
+import { getTransactions } from '../../services/TransactionService';
+import { CarsService } from '../../services/CarsService';
 //import Transaction from "./Transaction";
 
 import './CarsPanel.css';
@@ -14,19 +15,21 @@ function CarsPanel() {
 
     const navigate = useNavigate();
     const [documents, setDocuments] = useState([]);
+    const [cookies, setCookies] = useCookies(['token']);
 
-    // useEffect(() => {
-    //     if (!token) {
-    //         return navigate('/login');
-    //     }
+    useEffect(() => {
+        if (!cookies.token) {
+            return navigate('/login');
+        }
 
-    //     async function fetchData() {
-    //         const documents = await CarsService(token);
-    //         setDocuments(documents);
-    //     }
+        async function fetchData() {
+            const documents = await CarsService(cookies.token);
+            setDocuments(documents);
+            console.log(documents);
+        }
 
-    //     fetchData();
-    // }, []);
+        fetchData();
+    }, []);
 
     return (
         <section className="user-panel">

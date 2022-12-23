@@ -8,7 +8,7 @@ import Home from './views/home/Home';
 import Login from './views/login/Login';
 import Register from './views/register/Register';
 import CarsPanel from './views/cars/CarsPanel';
-// import InvoicePanel from './views/invoices/InvoicePanel';
+import InvoicePanel from './views/invoices/InvoicePanel';
 import CreateCars from './views/cars/CreateCars';
 import DeleteCars from './views/cars/DeleteCars';
 
@@ -38,6 +38,17 @@ function App() {
                         <UserProvider>
                             <NavCars />
                             <CarsPanel />
+                        </UserProvider>
+                    </TokenProvider>
+                }
+            />
+            <Route
+                path="/invoice"
+                element={
+                    <TokenProvider>
+                        <UserProvider>
+                            <NavCars />
+                            <InvoicePanel />
                         </UserProvider>
                     </TokenProvider>
                 }
