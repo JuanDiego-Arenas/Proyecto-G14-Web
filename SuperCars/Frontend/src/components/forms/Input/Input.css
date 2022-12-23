@@ -2,7 +2,7 @@
     position: relative;
     height: 45px;
     width: 90%;
-    margin-bottom: 28px;
+    margin: 0rem;
 }
 
 .input {
@@ -10,11 +10,11 @@
     top: 0px;
     left: 0px;
     height: 100%;
-    width: 100%;
+    width: 111%;
     border: 1px solid #8d9096;
     border-radius: 7px;
-    font-size: 1.5rem;
-    padding: 0 20px;
+    font-size: 1.2rem;
+    padding: 20px;
     background: none;
     z-index: 1;
 }

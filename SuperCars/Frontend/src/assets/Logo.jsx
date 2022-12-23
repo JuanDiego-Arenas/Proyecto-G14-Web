@@ -1,13 +1,13 @@
 import React from 'react';
 import './Logo.css';
-import logo from './logo.png';
+import logo from './logo.svg';
 
 function Logo(props) {
-    const { size, showText = true } = props;
+    const { size, high, showText = true } = props;
 
     const style = {
         width: size,
-        height: size,
+        height: high,
     };
 
     return (

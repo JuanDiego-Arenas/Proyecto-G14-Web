@@ -12,22 +12,30 @@ function Login() {
         <section className="login">
             <div className="container">
                 <Link to="/">
-                    <Logo showText={false} />
+                    <Logo style="200px" showText={false} />
                 </Link>
                 <h1 className="title">
-                    Registrarse en <b>Suepr Cars</b>
+                    Registrarse en <b>SuperCars</b>
                 </h1>
                 <form className="flex card form">
-                    <Input>Telefono</Input>
-                    <Input>Nombre De Usuario</Input>
+                    <Input type="text">Nombre</Input>
+                    <Input type="text">Apellido</Input>
+                    <Input type="email">Email</Input>
+                    <Input type="text">Tipo De Documento</Input>
+                    <Input type="number">Número De Documento</Input>
+                    <Input type="user">Nombre De Usuario</Input>
                     <Input type="password">Contraseña</Input>
                     <Input type="password">Confirmar Contraseña</Input>
-                    <Button style={"fill"}>Registrarme</Button>
+                    <Button style={'fill'} onClick>
+                        Registrarme
+                    </Button>
                 </form>
                 <div className="register card">
                     <p>
                         ¿Ya tienes cuenta?{' '}
-                        <Link className='link' to="/login">Inicia Sesión</Link>
+                        <Link className="link" to="/login">
+                            Inicia Sesión
+                        </Link>
                     </p>
                 </div>
             </div>

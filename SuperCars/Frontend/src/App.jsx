@@ -11,39 +11,16 @@ import CarsPanel from './views/cars/CarsPanel';
 // import InvoicePanel from './views/invoices/InvoicePanel';
 import CreateCars from './views/cars/CreateCars';
 import DeleteCars from './views/cars/DeleteCars';
-import Test from './views/test/Test';
 
 function App() {
     return (
         <Routes>
             <Route element={<Navbar />}>
                 <Route path="/" element={<Home />} />
-                <Route
-                    path="/about"
-                    element={<h1 className="container">About</h1>}
-                />
             </Route>
 
-            <Route
-                path="/login"
-                element={
-                    <TokenProvider>
-                        <UserProvider>
-                            <Login />
-                        </UserProvider>
-                    </TokenProvider>
-                }
-            />
-            <Route
-                path="/register"
-                element={
-                    <TokenProvider>
-                        <UserProvider>
-                            <Register />
-                        </UserProvider>
-                    </TokenProvider>
-                }
-            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
             {/* <Route
                 path="/panel"
                 element={
@@ -87,8 +64,6 @@ function App() {
                     </TokenProvider>
                 }
             />
-
-            <Route path="/test" element={<Test></Test>} />
         </Routes>
     );
 }

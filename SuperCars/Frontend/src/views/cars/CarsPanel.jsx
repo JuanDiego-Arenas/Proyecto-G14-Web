@@ -1,32 +1,32 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import TokenContext from '../../contexts/TokenContext';
-import { getTransactions } from '../../services/TransactionService';
-import { CarsService } from '../../services/CarsService';
 import List_cars from './List_cars';
 import My_cars from './My_cars';
+// import TokenContext from '../../contexts/TokenContext';
+// import { getTransactions } from '../../services/TransactionService';
+// import { CarsService } from '../../services/CarsService';
 //import Transaction from "./Transaction";
 
 import './CarsPanel.css';
 
 function CarsPanel() {
-    const { token } = useContext(TokenContext);
+    // const { token } = useContext(TokenContext);
 
     const navigate = useNavigate();
     const [documents, setDocuments] = useState([]);
 
-    useEffect(() => {
-        if (!token) {
-            return navigate('/login');
-        }
+    // useEffect(() => {
+    //     if (!token) {
+    //         return navigate('/login');
+    //     }
 
-        async function fetchData() {
-            const documents = await CarsService(token);
-            setDocuments(documents);
-        }
+    //     async function fetchData() {
+    //         const documents = await CarsService(token);
+    //         setDocuments(documents);
+    //     }
 
-        fetchData();
-    }, []);
+    //     fetchData();
+    // }, []);
 
     return (
         <section className="user-panel">

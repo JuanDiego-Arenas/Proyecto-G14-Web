@@ -1,35 +1,39 @@
-import React, { useState } from 'react';
-import Logo from '../../assets/Logo';
-import { Link } from 'react-router-dom';
-import Button from '../../components/forms/Button/Button';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { login } from '../../services/AuthService';
+import { useCookies } from 'react-cookie';
+
+// Complementos
 import Input from '../../components/forms/Input/Input';
+import Button from '../../components/forms/Button/Button';
+import Logo from '../../assets/Logo';
 import './Login.css';
 
 function Login() {
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
-    
-    async function onButtonClick(evento) {
-        evento.preventDefault();
-        
-        alert(
-            'estas iniciando sesión.\nUser: ' + user + '\nPassword: ' + password
-            );
-            
-            const res = await fetch('http://localhost:8080/login', {
-                mode: 'cors',
-                headers: {
-                    user: user,
-                    password: password,
-                },
-            });
+    const [cookies, setCookies] = useCookies(['token']);
 
-        if (res.ok) {
-            const data = await res.json();
-            alert('Tu token es: ' + data.token);
-        } else {
-            alert('Error: ' + res.statusText);
-        }
+    // Si hay un token, navega a cars (Pagina Principal)
+    useEffect(() => {
+        if (cookies.token) navigate('/cars');
+    }, []);
+
+    const navigate = useNavigate();
+
+    function onButtonClick(event) {
+        event.preventDefault();
+
+        login(user, password).then(token => {
+            // Implementación
+            if (!token) return;
+
+            // Guardado de la cookie en el token
+            setCookies('token', token, { maxAge: 7 * 24 * 60 * 60 });
+
+            // Navegación a cars
+            navigate('/cars');
+        });
     }
 
     return (
@@ -44,9 +48,13 @@ function Login() {
                 </h1>
 
                 <form className="flex card form">
-                    <Input onChange={event => setUser(event.target.value)}>
+                    <Input
+                        type="text"
+                        onChange={event => setUser(event.target.value)}
+                    >
                         User Name
                     </Input>
+
                     <Input
                         type="password"
                         onChange={event => setPassword(event.target.value)}
@@ -54,7 +62,7 @@ function Login() {
                         Password
                     </Input>
 
-                    <Button style="fill" onClick={onButtonClick}>
+                    <Button type="submit" style="fill" onClick={onButtonClick}>
                         Login
                     </Button>
                 </form>
