@@ -28,7 +28,7 @@
 }
 
 .header .grid {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 4fr);
 }
 
 @media (max-width: 45em) {
@@ -39,5 +39,4 @@
     .header .illustration {
         grid-row: 1;
     }
-
 }

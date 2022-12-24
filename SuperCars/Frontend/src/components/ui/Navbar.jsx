@@ -15,10 +15,9 @@ function Navbar() {
                             <Logo size="190px" showText={true} />
                         </Link>{' '}
                     </li>
-                    {/* <li><Link to="/">Inicio</Link></li> */}
-                    {/* <li><Link to="/about">Nosotros</Link></li> */}
+
                     <li>
-                        <Link to="/login">
+                        <Link to="/cars">
                             <Button style="wire">Ingresar</Button>
                         </Link>
                     </li>

@@ -1,12 +1,13 @@
 import React from 'react';
 
 function GridColumn(props) {
-    const { children, column, row, className } = props;
+    const { children, className, column, row } = props;
 
     const style = {
-        gridColumn: column,
-        gridRow: row,
+        GridColumn: column,
+        GridRow: row,
     };
+
     return (
         <div className={className} style={style}>
             {children}

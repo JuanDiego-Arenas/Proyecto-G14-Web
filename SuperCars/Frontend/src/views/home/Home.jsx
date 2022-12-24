@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/forms/Button/Button';
 import illustration from './home_illustration.png';
+import { Link } from 'react-router-dom';
 import GridColumn from '../../components/GridColumn';
+
 import './Home.css';
 
 function Home() {
@@ -19,7 +20,7 @@ function Home() {
                         como en <b>SuperCars</b>.
                     </p>
                     <Link to="/register">
-                        <Button style='fill'>Quiero Mi Cuenta</Button>
+                        <Button style="fill">Quero Mi Cuenta</Button>
                     </Link>
                 </GridColumn>
 

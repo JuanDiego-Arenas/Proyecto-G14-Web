@@ -24,7 +24,6 @@ body * {
 }
 
 :root {
-    /* --main-color: rgb(2, 2, 61); */
     --text-color: rgb(86, 86, 86);
     --main-color: rgb(27, 54, 92);
     --enf-color: #ca2728;

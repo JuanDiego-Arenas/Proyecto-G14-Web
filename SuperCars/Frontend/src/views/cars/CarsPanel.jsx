@@ -25,7 +25,6 @@ function CarsPanel() {
         async function fetchData() {
             const documents = await CarsService(cookies.token);
             setDocuments(documents);
-            console.log(documents);
         }
 
         fetchData();
