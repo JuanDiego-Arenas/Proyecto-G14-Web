@@ -12,7 +12,6 @@ function Update() {
         evento.preventDefault();
 
         if (editar == false) {
-            console.log(sede);
             const res = await fetch(API_URL + '/tienda/' + id, {
                 method: 'PUT',
                 mode: 'cors',
@@ -35,7 +34,7 @@ function Update() {
     async function consultar(evento) {
         evento.preventDefault();
 
-        const res = await fetch('http://localhost:8090/tienda/' + id, {
+        const res = await fetch(API_URL + '/tienda/' + id, {
             method: 'GET',
         });
 
