@@ -1,7 +1,7 @@
 import { API_URL } from './api';
 
 export async function getTransactions(token) {
-    const res = await fetch(API_URL + '/transaction/', {
+    const res = await fetch(API_URL + '/transaction', {
         headers: {
             token: token,
         },
